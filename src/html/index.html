@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<link href="./style.css" type="text/css" rel="stylesheet">
+	<title>Network Scanner</title>
+</head>
+<body>
+
+<div id="ID_LOGO">WARNING<br/>scan computers of other<br/>may be illegal</div>
+
+
+<div id="ID_BANNER">
+	<h1>Network Scanner</h1>
+	<p></p>
+</div>
+
+
+<div id="ID_CTRPANEL">
+	<table>
+		<tr>
+			<td class="FIRST_TD" >
+				<label class="FIRST_LABEL">IP range</label>
+			</td>
+			<td>
+				<input type="text" id="ID_IP" />
+				<label>/</label>
+				<input type="text" id="ID_MASK" class="INPUT_NUMBER" />
+			</td>
+			<td>
+				<input type="button" value="scan" onclick="OnClickScan();" />
+			</td>
+		</tr>
+		<tr>
+			<td class="FIRST_TD" >
+				<label class="FIRST_LABEL">port range</label>
+			</td>
+			<td>
+				<input type="text" id="ID_BEGIN_PORT" class="INPUT_NUMBER" />
+				<label>~</label>
+				<input type="text" id="ID_END_PORT" class="INPUT_NUMBER" />
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="FIRST_TD" >
+				<label class="FIRST_LABEL">scan type</label>
+			</td>
+			<td>
+				<input type="radio" name="SCANTYPE" onclick="OnRadioChange();" value="ICMP" checked>ICMP</input>
+				<input type="radio" name="SCANTYPE" onclick="OnRadioChange();" value="SYN">SYN</input>
+				<input type="radio" name="SCANTYPE" onclick="OnRadioChange();" value="FIN">FIN</input>
+				<input type="radio" name="SCANTYPE" onclick="OnRadioChange();" value="SYNACK">SYN/ACK</input>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="FIRST_TD" >
+				<label class="FIRST_LABEL">source port</label>
+			</td>
+			<td>
+				<input type="text" id="ID_SRC_PORT" class="INPUT_NUMBER" />
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="FIRST_TD" >
+				<label class="FIRST_LABEL">timeout</label>
+			</td>
+			<td>
+				<input type="text" id="ID_TIMEOUT" class="INPUT_NUMBER" />
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="button" value="clear history on server" onclick="OnClickClear();" /></td>
+			<td></td>
+	</table>
+</div>
+
+
+<div id="ID_TAB">
+	<span class="SPAN_UNSELECT" id="ID_QUEUE"  onclick="ChangeTab('ID_QUEUE');" >Waiting</span>
+	<span class="SPAN_UNSELECT" id="ID_SENT"   onclick="ChangeTab('ID_SENT');"  >Sent</span>
+	<span class="SPAN_UNSELECT" id="ID_RESULT" onclick="ChangeTab('ID_RESULT');">Received</span>
+</div>
+
+
+<div id="ID_CONTENT" class="CONTENT_QUEUE"></div>
+<div id="ID_TAIL"></div>	
+
+</body>
+
+<script type="text/javascript" src="index.js" ></script>
+
+</html>
